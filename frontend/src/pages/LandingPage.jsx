@@ -190,7 +190,8 @@ export default function LandingPage() {
               <h2 className="section-title">À Propos d'Amidjor</h2>
               <p className="about-text">
                 <strong>Amidjor Agro-Business</strong> est une entreprise guinéenne spécialisée dans la transformation 
-                des produits agricoles locaux. Basée à Sonfonia Soloprimo, nous valorisons les richesses de notre terroir.
+                des produits agricoles locaux. Basée à Sonfonia Soloprimo, nous valorisons les richesses de notre terroir 
+                en proposant des produits sains, naturels et de qualité supérieure, tout en soutenant les agriculteurs locaux.
               </p>
               <div className="about-stats">
                 <div className="stat">
@@ -198,11 +199,11 @@ export default function LandingPage() {
                   <span className="stat-label">Clients satisfaits</span>
                 </div>
                 <div className="stat">
-                  <span className="stat-number">20+</span>
+                  <span className="stat-number">10+</span>
                   <span className="stat-label">Produits transformés</span>
                 </div>
                 <div className="stat">
-                  <span className="stat-number">3</span>
+                  <span className="stat-number">15+</span>
                   <span className="stat-label">Années d'expérience</span>
                 </div>
               </div>
