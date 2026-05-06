@@ -1,0 +1,31 @@
+# Netlify configuration for Amidjor Frontend
+[build]
+  base = "frontend"
+  publish = "dist"
+  command = "npm install && npm run build"
+
+[[redirects]]
+  from = "/api/*"
+  to = "https://amidjor-backend.railway.app/api/:splat"
+  status = 200
+  force = true
+
+[[redirects]]
+  from = "/admin/*"
+  to = "https://amidjor-backend.railway.app/admin/:splat"
+  status = 200
+  force = true
+
+[[redirects]]
+  from = "/media/*"
+  to = "https://amidjor-backend.railway.app/media/:splat"
+  status = 200
+  force = true
+
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
+
+[build.environment]
+  NODE_VERSION = "18"
