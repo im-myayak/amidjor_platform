@@ -24,11 +24,11 @@ COPY . /app/
 # Set working directory to backend
 WORKDIR /app/backend
 
-# Collect static files and run migrations
-RUN python manage.py collectstatic --noinput
+# Create startup script
+RUN echo '#!/bin/bash\npython manage.py collectstatic --noinput\npython manage.py migrate\ngunicorn config.wsgi:application --bind 0.0.0.0:$PORT' > /app/start.sh && chmod +x /app/start.sh
 
 # Expose port
 EXPOSE 8000
 
 # Start command
-CMD ["gunicorn", "config.wsgi:application", "--bind", "0.0.0.0:$PORT"]
+CMD ["/app/start.sh"]
