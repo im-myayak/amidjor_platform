@@ -1,0 +1,63 @@
+# Django
+*.pyc
+__pycache__/
+*.pyo
+*.pyd
+.Python
+*.so
+*.egg
+*.egg-info/
+dist/
+build/
+
+# Virtual environments
+venv/
+env/
+ENV/
+.venv/
+
+# Django local settings
+.env
+.env.local
+.env.*.local
+local_settings.py
+
+# Database
+db.sqlite3
+*.sqlite3
+
+# Static and media files (collected)
+staticfiles/
+media/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Node.js (Frontend)
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Build files
+frontend/dist/
+frontend/build/
+
+# Logs
+*.log
+logs/
+
+# Coverage
+.coverage
+htmlcov/
+
+# Render
+render.yaml.bak

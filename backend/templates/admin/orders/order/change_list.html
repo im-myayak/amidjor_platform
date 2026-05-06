@@ -1,0 +1,61 @@
+{% extends "admin/change_list.html" %}
+{% load static %}
+
+{% block content_title %}
+<h1>Orders Dashboard</h1>
+{% endblock %}
+
+{% block result_list %}
+<!-- Stats Cards -->
+{% if stats %}
+<div class="stats-container" style="display: flex; gap: 15px; margin-bottom: 25px; flex-wrap: wrap;">
+    <!-- Total Orders -->
+    <div class="stat-card" style="background: #fff; border: 1px solid #ddd; border-radius: 4px; padding: 15px; min-width: 120px; text-align: center;">
+        <div style="font-size: 28px; font-weight: bold; color: #333;">{{ stats.total }}</div>
+        <div style="font-size: 12px; color: #666; text-transform: uppercase;">Total Orders</div>
+    </div>
+
+    <!-- Pending -->
+    <div class="stat-card" style="background: #fff3cd; border: 1px solid #ffc107; border-radius: 4px; padding: 15px; min-width: 120px; text-align: center;">
+        <div style="font-size: 28px; font-weight: bold; color: #856404;">{{ stats.pending }}</div>
+        <div style="font-size: 12px; color: #856404; text-transform: uppercase;">Pending</div>
+    </div>
+
+    <!-- Contacted -->
+    <div class="stat-card" style="background: #cce5ff; border: 1px solid #007bff; border-radius: 4px; padding: 15px; min-width: 120px; text-align: center;">
+        <div style="font-size: 28px; font-weight: bold; color: #004085;">{{ stats.contacted }}</div>
+        <div style="font-size: 12px; color: #004085; text-transform: uppercase;">Contacted</div>
+    </div>
+
+    <!-- Confirmed -->
+    <div class="stat-card" style="background: #d4edda; border: 1px solid #28a745; border-radius: 4px; padding: 15px; min-width: 120px; text-align: center;">
+        <div style="font-size: 28px; font-weight: bold; color: #155724;">{{ stats.confirmed }}</div>
+        <div style="font-size: 12px; color: #155724; text-transform: uppercase;">Confirmed</div>
+    </div>
+
+    <!-- Cancelled -->
+    <div class="stat-card" style="background: #f8d7da; border: 1px solid #dc3545; border-radius: 4px; padding: 15px; min-width: 120px; text-align: center;">
+        <div style="font-size: 28px; font-weight: bold; color: #721c24;">{{ stats.cancelled }}</div>
+        <div style="font-size: 12px; color: #721c24; text-transform: uppercase;">Cancelled</div>
+    </div>
+
+    <!-- Revenue -->
+    <div class="stat-card" style="background: #e2e3e5; border: 1px solid #6c757d; border-radius: 4px; padding: 15px; min-width: 150px; text-align: center;">
+        <div style="font-size: 22px; font-weight: bold; color: #383d41;">{{ stats.total_revenue|floatformat:0 }} GNF</div>
+        <div style="font-size: 12px; color: #383d41; text-transform: uppercase;">Revenue ({{ stats.confirmed_orders }} orders)</div>
+    </div>
+</div>
+{% endif %}
+
+<!-- Quick Filters -->
+<div class="quick-filters" style="margin-bottom: 20px; padding: 15px; background: #f8f9fa; border-radius: 4px;">
+    <strong>Quick Filters:</strong>
+    <a href="?status=pending" style="margin-left: 10px; padding: 3px 10px; background: #ffc107; color: #000; border-radius: 3px; text-decoration: none;">Pending</a>
+    <a href="?status=contacted" style="margin-left: 10px; padding: 3px 10px; background: #007bff; color: #fff; border-radius: 3px; text-decoration: none;">Contacted</a>
+    <a href="?status=confirmed" style="margin-left: 10px; padding: 3px 10px; background: #28a745; color: #fff; border-radius: 3px; text-decoration: none;">Confirmed</a>
+    <a href="?status=cancelled" style="margin-left: 10px; padding: 3px 10px; background: #dc3545; color: #fff; border-radius: 3px; text-decoration: none;">Cancelled</a>
+    <a href="?" style="margin-left: 10px; padding: 3px 10px; background: #6c757d; color: #fff; border-radius: 3px; text-decoration: none;">All</a>
+</div>
+
+{{ block.super }}
+{% endblock %}
